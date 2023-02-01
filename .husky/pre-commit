@@ -1,0 +1,40 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+echo
+echo "Styling, testing and building project before committing..."
+
+# # Code format using prettier
+# npm run format && echo "Code format successful." || (
+#     echo "Code format failed !!!"
+#     echo "Check the error and fix the warning(s) or error(s)."
+#     false;
+# )
+
+# Lint check
+npm run eslint:check && echo "lint check successful." || (
+    echo "Prettier Check Failed."
+    echo "Run 'npm run eslint:fix', add changes and try commit again."; 
+    false;
+)
+
+# Check tsconfig standards
+npm run typescript:check && echo "type check successful." || (
+    echo "Failed Type check !!!"
+    echo "Make the changes required above."
+    false;
+)
+
+# Build check
+npm run build && echo "Build successful." || (
+    echo "Build failed !!!"
+    echo "Next build failed: View the errors above to see why."
+    false;
+)
+
+# If ctrl+c is pressed stop the process
+
+echo "Check and add the formatted codes to staging."
+echo "All checks completed."
+
+# echo "Uncomment all the checks!!!"

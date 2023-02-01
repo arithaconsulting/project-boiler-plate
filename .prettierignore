@@ -1,0 +1,15 @@
+.next
+next-env.d.ts
+
+.husky/*
+*.gitignore
+*.prettierignore
+
+node_modules
+public
+out
+dist
+build
+
+yarn.lock
+package-lock.json
