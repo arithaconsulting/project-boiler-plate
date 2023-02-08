@@ -2,7 +2,7 @@ import { Roboto } from "@next/font/google";
 import { createTheme, responsiveFontSizes } from "@mui/material/styles";
 
 export const roboto = Roboto({
-  display: 'swap',
+  display: "swap",
   subsets: ["latin"],
   weight: ["300", "400", "500", "700"],
   fallback: ["Helvetica", "Arial", "sans-serif"],

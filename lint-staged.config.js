@@ -10,6 +10,8 @@ module.exports = {
       // .map(fileName => (isWin ? fileName : escape([fileName]))) // * architecture check
       .join(" ");
 
+    // * console.log("escapedFileNames: ", escapedFileNames);
+
     return [
       `prettier --with-node-modules --write ${escapedFileNames}`,
       `eslint --no-ignore --max-warnings=0 --fix ${fileNames

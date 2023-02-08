@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
-# Stop the process and return false to
+# Stop the process and return false
 ctrl_c() {
   echo "Stoping checks..."
   false
@@ -14,7 +14,7 @@ echo
 echo "Pre-commit checks started..."
 
 # Check tsconfig standards
-npm run typescript:check && echo "type check successful." || (
+npm run typescript:check && echo -e "\ntype check successful." || (
   echo "Failed Type check !!!"
   echo "Make the changes required above."
   false
@@ -22,7 +22,7 @@ npm run typescript:check && echo "type check successful." || (
 echo
 
 # Code format using prettier
-npm run lint-staged && echo "Code format successful, and added to staging." || (
+npm run lint-staged && echo -e "\nCode format successful, and added to staging." || (
   echo "Code format failed !!!"
   echo "Check the error and fix the warning(s) or error(s)."
   false
@@ -30,7 +30,7 @@ npm run lint-staged && echo "Code format successful, and added to staging." || (
 echo
 
 # Build check
-npm run build && echo "Build successful." || (
+npm run build && echo -e "\nBuild successful." || (
   echo "Build failed !!!"
   echo "Next build failed: View the errors above to see why."
   false
