@@ -4,7 +4,7 @@ const { ESLint } = require("eslint");
 const eslint = new ESLint();
 
 module.exports = {
-  "**/*.{js,ts,tsx,json}": (fileNames) => {
+  "**/*.{js,jsx,ts,tsx,json}": (fileNames) => {
     const escapedFileNames = fileNames
       .map((fileName) => escape(fileName))
       // .map(fileName => (isWin ? fileName : escape([fileName]))) // * architecture check
