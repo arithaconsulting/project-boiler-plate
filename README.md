@@ -33,21 +33,10 @@ This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-opti
 
 > Note: Below steps are mandatory before checkin your code to CodeCommit.
 
-1.  Check your code, if it is not throwing any error in the console by executing the below commands
+1.  Take a pull from the default branch.
 
-        npm run dev
-        npm run build
+2.  If you get any conflicts, fix those. If conflict is from other developer's components or files, check with a respected developer and fix them.
 
-2.  `npm run format` (Which internally runs the pre-commit hooks which checks eslint, ts type check, and build check).
+3.  If code is merged with no conflicts, push committed code to your branch.
 
-3.  Add all the required files to the stage.
-
-4.  Commit staged changes.
-
-5.  Take a pull from the default branch(currently **develop** is the default branch)
-
-6.  If you get any conflicts, fix those. If conflict is from other developers' components or files, check with a respected developer and fix them.
-
-7.  If code is merged with no conflicts, push committed code to your branch.
-
-8.  Create PR if your component or task is completed from your branch(source) to default branch(destination).
+4.  Create PR if your component or task is completed from your branch(source) to default branch(destination).
