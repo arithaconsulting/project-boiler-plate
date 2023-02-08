@@ -1,42 +1,60 @@
-## Getting Started
+# HTML Project Directory Structure
 
-Project boiler plate built using NextJS typescript framework, scss styling.
+A front-end template for your project
+## Explanation of the Directory Tree is as below:
 
-First, For Project setup execute the below command
+### Root Folder
+* Index.html
+* Favicon.ico
+* Manifest.json , Manifest.webapp
 
-```
-npm run project:setup
 
-```
+### Fonts
+All fonts and font icons should go here
+### Images
+Place all general images here. For more specific images like icon, logos, and mobile favicons use **ICON, LOGOS and TOUCH** folders respectively.
+### Plugins
+Files of all third-party libraries and plugin should go in this folder. Create a subfolder for each new plugin using camelCase naming convention.
 
-To run the development server:
+Example:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+![Example](https://i.imgur.com/dgbycWt.png)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Here **datatables.css** and **datatables.min.js** are plugin files and **custom-datatables.js** has our custom JS to use that plugin.
+### Scripts
+JS files go here. Use **app.js** for JS code that is intended to be used on all pages. While for any page specific JS create an individual file like **contact-us.js, new-page.js** etc.
+### Styles
+All stylesheets go here. **CSS** folder contains all compiled css files. Common styles should go to **app.css** and page specific styles should go to their individual stylesheets like **contact-us.css, new-page.css**
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+The **SCSS** contains precompiled files and are meant to facilitates frontend developers only.
+## Naming Conventions
+| Type	| Naming Convention| Example|
+| ------------- |-------------| -----|
+| Files	     | hyphen-case| contact-us.js,new-page.css|
+| col 2 is      | centered      |   $12 |
+| zebra stripes | are neat      |    $1 |
+|Folder	|camelCase|	newFolder, jqueryValidator
+|Stylesheet|	hyphen-case	|contact-us.css
+|Script|	hyphen-case|	Jquery-validator.js
+|Class Name|	hyphen-case|	Class=”new-class”
+|ID Name|	camelCase	|id=”changeColor”
+|Function|	camelCase	|myFunction()
+|Variable|	camelCase	|myVar=1;
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+### Labels
+The ID of an input element should be same as the name of its related label is. And follow camelCase for **name** and **for** attributes. E.g
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+![Example](https://i.imgur.com/layiGMI.png)
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+### JS Code
+If the component is to be used multiple times on same page, then use class to handle JS. e.g
 
-## CodeCommit (git) steps
+![Example](https://i.imgur.com/BURq8Ql.png)
+> Use prefix “js” in such cases
 
-> Note: Below steps are mandatory before checkin your code to CodeCommit.
+![Example](https://i.imgur.com/U5FCh9h.png)
+> Common code for multiple components
 
-1.  Take a pull from the default branch.
-
-2.  If you get any conflicts, fix those. If conflict is from other developer's components or files, check with a respected developer and fix them.
-
-3.  If code is merged with no conflicts, push committed code to your branch.
-
-4.  Create PR if your component or task is completed from your branch(source) to default branch(destination).
+Use **ID** if component is to be used once only 
+![Example](https://i.imgur.com/HsEKgXl.png)
+![Example](https://i.imgur.com/TfEPLRw.png)
