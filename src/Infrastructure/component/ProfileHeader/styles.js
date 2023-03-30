@@ -1,55 +1,45 @@
-import {StyleSheet, Dimensions} from 'react-native';
-
-import {scale} from '../../utils/screenUtility';
-
+import { StyleSheet } from "react-native";
+import { scale } from "../../utils/screenUtility";
+import colors from "../../assets/colors/colors";
 const styles = StyleSheet.create({
   container: {
-    // flex: 1,
-    flexDirection: 'row',
-    alignItems: 'center',
+    flexDirection: "row",
+    alignItems: "center",
     padding: scale(10),
-    justifyContent: 'space-between',
+    justifyContent: "space-between",
     borderRadius: scale(5),
-    borderColor: '#EDEDED',
+    borderColor: colors.White_Smoke,
     borderWidth: scale(2),
-    // shadowColor: 'black',
-    // shadowOffset: {
-    //   width: 0,
-    //   height: 2,
-    // },
-    // shadowRadius: 5,
-    // shadowOpacity: 1.0,
   },
   profilePic: {
     marginTop: scale(30),
     marginLeft: scale(-15),
   },
   userName: {
-    fontFamily: 'Montserrat-Medium',
+    fontFamily: "Montserrat-Medium",
     fontSize: scale(12),
-    color: '#020433',
+    color: colors.Sapphire,
   },
   email: {
-    fontFamily: 'Montserrat-Regular',
+    fontFamily: "Montserrat-Regular",
     fontSize: scale(9),
-    color: '#020433',
+    color: colors.Sapphire,
   },
   status: {
-    fontFamily: 'SourceSansPro-Regular',
+    fontFamily: "SourceSansPro-Regular",
     fontSize: scale(11),
-    color: '#FD747C',
+    color: colors.Salmon,
   },
   editContainer: {
-    backgroundColor: '#E0F0F7',
+    backgroundColor: colors.PattensBlue,
     paddingHorizontal: scale(10),
     paddingVertical: scale(5),
     borderRadius: scale(20),
     marginTop: scale(5),
   },
   edit: {
-    // fontFamily: 'SourceSansPro-Regular',
     fontSize: scale(13),
-    color: '#19A0DA',
+    color: colors.PacificBlue,
   },
 });
 
