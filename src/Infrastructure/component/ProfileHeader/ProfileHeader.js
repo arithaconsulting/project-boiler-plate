@@ -1,20 +1,22 @@
-import React from 'react';
-import {View, Text, Image, TouchableOpacity, Alert} from 'react-native';
-import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
-import {Avatar} from 'react-native-paper';
-import {scale} from '../../utils/screenUtility';
-import styles from './styles';
-import {connect} from 'react-redux';
+import React from "react";
+import { View, Text, Image, TouchableOpacity, Alert } from "react-native";
+import MaterialIcons from "react-native-vector-icons/MaterialIcons";
+import { Avatar } from "react-native-paper";
+import { scale } from "../../utils/screenUtility";
+import styles from "./styles";
+import { connect } from "react-redux";
+import colors from "../../assets/colors/colors";
 
-const ProfileHeader = props => {
+const ProfileHeader = (props) => {
   return (
     <View
       style={{
         ...styles.container,
-        backgroundColor: '#fff',
+        backgroundColor: colors.mainWhite,
         height: scale(80),
-      }}>
-      <View style={{flexDirection: 'row', alignItems: 'center'}}>
+      }}
+    >
+      <View style={{ flexDirection: "row", alignItems: "center" }}>
         {props?.profilePic !== null ? (
           <View>
             <Image
@@ -32,7 +34,7 @@ const ProfileHeader = props => {
           <View>
             <Avatar.Image
               size={scale(50)}
-              source={require('../../assets/images/avatar.png')}
+              source={require("../../assets/images/avatar.png")}
             />
           </View>
         )}
@@ -40,48 +42,45 @@ const ProfileHeader = props => {
         <View style={styles.profilePic}>
           {props.EditProfilePic ? (
             <TouchableOpacity onPress={() => props.editPic()}>
-              <MaterialIcons name="edit" size={25} color="#08C299" />
+              <MaterialIcons
+                name="edit"
+                size={25}
+                color={colors.CaribbeanGreen}
+              />
             </TouchableOpacity>
           ) : (
-            <MaterialIcons name="verified-user" size={20} color="#08C299" />
+            <MaterialIcons
+              name="verified-user"
+              size={20}
+              color={colors.CaribbeanGreen}
+            />
           )}
         </View>
         <View>
-          <View style={{marginLeft: 10, justifyContent: 'space-between'}}>
+          <View style={{ marginLeft: 10, justifyContent: "space-between" }}>
             <Text style={styles.userName}>
-              {props.name ? props.name : '--'}
+              {props.name ? props.name : "--"}
             </Text>
             <Text style={styles.email}>
-              {props.primaryEmail ? props.primaryEmail : '--'}
+              {props.primaryEmail ? props.primaryEmail : "--"}
             </Text>
-
-            {/* <Text
-              style={{
-                fontFamily: 'SourceSansPro-Regular',
-                fontSize: scale(11),
-                color:
-                  props?.getProfileStatus?.data?.profileCompletion !== '100%'
-                    ? '#FD747C'
-                    : '#08C299',
-              }}>
-              Completed (
-              {props?.getProfileStatus?.data?.profileCompletion
-                ? props?.getProfileStatus?.data?.profileCompletion
-                : '0%'}
-              )
-            </Text> */}
           </View>
         </View>
       </View>
       {!props.accStatus ? (
-        <View style={{alignItems: 'center', right: scale(5)}}>
+        <View style={{ alignItems: "center", right: scale(5) }}>
           <TouchableOpacity
             style={styles.editContainer}
             onPress={() => {
               // signOut();
               props.onAction();
-            }}>
-            <MaterialIcons name="person-outline" size={25} color="#00A8DB" />
+            }}
+          >
+            <MaterialIcons
+              name="person-outline"
+              size={25}
+              color={colors.IrisBlue}
+            />
           </TouchableOpacity>
         </View>
       ) : null}
@@ -89,7 +88,7 @@ const ProfileHeader = props => {
   );
 };
 
-const mapStateToProps = ({timeLine: {profileInfo, getProfileStatus}}) => ({
+const mapStateToProps = ({ timeLine: { profileInfo, getProfileStatus } }) => ({
   profileInfo,
   getProfileStatus,
 });

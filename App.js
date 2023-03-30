@@ -1,20 +1,11 @@
-import React, {useState, useEffect} from 'react';
-import {NavigationContainer} from '@react-navigation/native';
-import {Provider} from 'react-redux';
-import store from './src/application/store';
+import React, { useState, useEffect } from "react";
+import { NavigationContainer } from "@react-navigation/native";
+import { Provider } from "react-redux";
+import store from "./src/application/store";
 // import {AuthContext} from './src/Infrastructure/utils/context';
-// import SplashComponent from './src/Infrastructure/component/SplashScreen/SplashScreen';
-// import {
-//   setLogin,
-//   setAuthToken,
-//   getAuthToken,
-//   getAuthTokenExpiry,
-//   setAuthTokenExpiry,
-//   setLoginID,
-//   setCompanyId,
-// } from './src/Infrastructure/utils/storageUtility';
-import LoginComponent from './src/presentation/components/LogIn/LoginComponent';
-import AuthNavigator from './src/Infrastructure/AuthNavigator';
+import { setLogin, getLogin } from "./src/Infrastructure/utils/storageUtility";
+import AuthNavigator from "./src/Infrastructure/AuthNavigator";
+import SplashComponent from "./src/Infrastructure/component/SplashScreen/SplashScreen";
 const App = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [userToken, setUserToken] = useState(false);
@@ -37,41 +28,36 @@ const App = () => {
   //   }),
   //   [],
   // );
-  // const checkLoginStatus = React.useMemo(async () => {
-  //   const token = await getAuthToken();
-  //   const tokenEx = await getAuthTokenExpiry();
-  //   const expirationTime = tokenEx * 1000 - 60000;
-  //   let currDate = Date.now();
-  //   if (expirationTime < currDate) {
-  //     setUserToken('');
-  //     setIsLoading(false);
-  //     setAuthToken('');
-  //   } else {
-  //     setIsLoading(false);
-  //     setUserToken(token);
-  //   }
-  // }, []);
-  // useEffect(() => {
-  //   checkLoginStatus;
-  // }, []);
-  // useEffect(() => {
-  //   setTimeout(() => {
-  //     setSplashTime(false);
-  //   }, 2000);
-  // }, []);
-  // if (spalshTime) {
-  //   return (
-  //     <NavigationContainer>
-  //       <SplashComponent />
-  //     </NavigationContainer>
-  //   );
-  // }
+  const checkLoginStatus = React.useMemo(async () => {
+    const token = await getLogin();
+    if (token) {
+      setUserToken(true);
+    } else {
+      setUserToken(false);
+    }
+  }, []);
+  useEffect(() => {
+    checkLoginStatus;
+  }, []);
+  useEffect(() => {
+    setTimeout(() => {
+      setSplashTime(false);
+    }, 2000);
+  }, []);
+  if (spalshTime) {
+    return (
+      <NavigationContainer>
+        <SplashComponent />
+      </NavigationContainer>
+    );
+  }
   return (
     <>
       <Provider store={store}>
         {/* <AuthContext.Provider value={authContext}> */}
         <NavigationContainer>
           <AuthNavigator />
+          {/* {userToken ? null : <AuthNavigator />} */}
         </NavigationContainer>
         {/* </AuthContext.Provider> */}
       </Provider>
