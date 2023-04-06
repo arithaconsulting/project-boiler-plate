@@ -17,8 +17,7 @@ import { useFormik } from "formik";
 import Logo from "../../../Infrastructure/component/Logo/Logo";
 import Feather from "react-native-vector-icons/Feather";
 import colors from "../../../Infrastructure/assets/colors/colors";
-import CustomButton from "../../../Infrastructure/component/CustomButton/CustomButton";
-import { setLogin } from "../../../Infrastructure/utils/storageUtility";
+import CustomButton from "../../../Infrastructure/component/CustomButton/Button";
 const loginValidationSchema = yup.object().shape({
   userID: yup.string().required("User Name / ID Required"),
   password: yup.string().required("Password Required"),

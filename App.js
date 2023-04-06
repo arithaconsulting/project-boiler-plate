@@ -4,8 +4,8 @@ import { Provider } from "react-redux";
 import store from "./src/application/store";
 // import {AuthContext} from './src/Infrastructure/utils/context';
 import { setLogin, getLogin } from "./src/Infrastructure/utils/storageUtility";
-import AuthNavigator from "./src/Infrastructure/AuthNavigator";
 import SplashComponent from "./src/Infrastructure/component/SplashScreen/SplashScreen";
+import AuthNavigator from "./src/Infrastructure/navigation/AuthNavigator";
 const App = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [userToken, setUserToken] = useState(false);

@@ -2,18 +2,10 @@ import React from "react";
 import { useNavigation } from "@react-navigation/native";
 import { TouchableOpacity } from "react-native";
 import { createStackNavigator } from "@react-navigation/stack";
-import LoginComponent from "../presentation/components/LogIn/LoginComponent";
-// import RegistrationComponents from '../../presentation/components/Registration/RegistrationComponents';
-// import VerificationComponets from '../../presentation/components/Verification/VerificationComponets';
-// import ForgetPassword from '../../presentation/components/ForgetPassword/ForgetPassword';
-// import ResetPassword from '../../presentation/components/ForgotChangePassword/ResetPasswordComponent';
-// import OtpVerification from '../../presentation/components/OtpVerification/OtpVerification';
-// import TermsAndConditions from '../../presentation/components/TermsAndConditions/TermsAndConditions';
-// import ForgotUserId from '../../presentation/components/ForgotUserId/ForgotUserId';
-import ComingSoon from "./component/ComingSoon/ComingSoon";
-import { scale } from "./utils/screenUtility";
 import Entypo from "react-native-vector-icons/Entypo";
-import colors from "./assets/colors/colors";
+import LoginComponent from "../../presentation/components/LogIn/LoginComponent";
+import ComingSoon from "../component/ComingSoon/ComingSoon";
+import { scale } from "../utils/screenUtility";
 
 const AuthNavigator = () => {
   const AuthStack = createStackNavigator();
@@ -70,18 +62,14 @@ const AuthNavigator = () => {
             <TouchableOpacity
               onPress={() => navigation.navigate("Registration")}
             >
-              <Entypo
-                name="chevron-small-left"
-                size={30}
-                color={colors.Slate_Grey}
-              />
+              <Entypo name="chevron-small-left" size={30} color="#687C93" />
             </TouchableOpacity>
           ),
-          headerStyle: { borderBottomWidth: 1, borderColor: colors.lightBrown },
+          headerStyle: { borderBottomWidth: 1, borderColor: "#00000029" },
           headerBackTitleVisible: false,
           headerTitleStyle: {
             fontSize: scale(16),
-            color: colors.GunPowder,
+            color: "#4D4F5C",
             fontFamily: "SourceSansPro-SemiBold",
           },
         }}
