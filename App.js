@@ -57,6 +57,7 @@ const App = () => {
         {/* <AuthContext.Provider value={authContext}> */}
         <NavigationContainer>
           <AuthNavigator />
+
           {/* {userToken ? null : <AuthNavigator />} */}
         </NavigationContainer>
         {/* </AuthContext.Provider> */}

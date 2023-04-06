@@ -17,7 +17,7 @@ import { useFormik } from "formik";
 import Logo from "../../../Infrastructure/component/Logo/Logo";
 import Feather from "react-native-vector-icons/Feather";
 import colors from "../../../Infrastructure/assets/colors/colors";
-import CustomButton from "../../../Infrastructure/component/CustomButton/Button";
+import CustomButton from "../../../Infrastructure/component/CustomButton/CustomButton";
 import { setLogin } from "../../../Infrastructure/utils/storageUtility";
 const loginValidationSchema = yup.object().shape({
   userID: yup.string().required("User Name / ID Required"),
@@ -110,7 +110,9 @@ const LoginComponent = () => {
                       <Text style={styles.errorMessage}>{errors.password}</Text>
                     )}
                   </View>
-                  <CustomButton title="Login" onPress={handleSubmit} />
+                  <View style={{ marginTop: scale(20) }}>
+                    <CustomButton title="Login" onPress={handleSubmit} />
+                  </View>
                   <TouchableOpacity
                     style={styles.forgotContent}
                     onPress={() => {
@@ -134,22 +136,18 @@ const LoginComponent = () => {
             </View>
             <View>
               <Text style={styles.header}>Don’t have an account ?</Text>
-              <TouchableOpacity
-                style={styles.registerButton}
+              <CustomButton
+                title="Register"
+                buttonStyle={styles.registerButton}
+                buttonTextStyle={{
+                  color: colors.linkColor,
+                  fontSize: scale(14),
+                  fontFamily: "SourceSansPro-SemiBold",
+                }}
                 onPress={() => {
                   navigation.navigate("Registration");
                 }}
-              >
-                <Text
-                  style={{
-                    color: "#00A0DA",
-                    fontSize: scale(14),
-                    fontFamily: "SourceSansPro-SemiBold",
-                  }}
-                >
-                  Register
-                </Text>
-              </TouchableOpacity>
+              />
             </View>
           </View>
         </ScrollView>

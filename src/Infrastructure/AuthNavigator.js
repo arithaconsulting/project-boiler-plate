@@ -1,8 +1,8 @@
-import React from 'react';
-import {useNavigation} from '@react-navigation/native';
-import {TouchableOpacity} from 'react-native';
-import {createStackNavigator} from '@react-navigation/stack';
-import LoginComponent from '../presentation/components/LogIn/LoginComponent';
+import React from "react";
+import { useNavigation } from "@react-navigation/native";
+import { TouchableOpacity } from "react-native";
+import { createStackNavigator } from "@react-navigation/stack";
+import LoginComponent from "../presentation/components/LogIn/LoginComponent";
 // import RegistrationComponents from '../../presentation/components/Registration/RegistrationComponents';
 // import VerificationComponets from '../../presentation/components/Verification/VerificationComponets';
 // import ForgetPassword from '../../presentation/components/ForgetPassword/ForgetPassword';
@@ -10,9 +10,10 @@ import LoginComponent from '../presentation/components/LogIn/LoginComponent';
 // import OtpVerification from '../../presentation/components/OtpVerification/OtpVerification';
 // import TermsAndConditions from '../../presentation/components/TermsAndConditions/TermsAndConditions';
 // import ForgotUserId from '../../presentation/components/ForgotUserId/ForgotUserId';
-import ComingSoon from './component/ComingSoon/ComingSoon';
-import {scale} from './utils/screenUtility';
-import Entypo from 'react-native-vector-icons/Entypo';
+import ComingSoon from "./component/ComingSoon/ComingSoon";
+import { scale } from "./utils/screenUtility";
+import Entypo from "react-native-vector-icons/Entypo";
+import colors from "./assets/colors/colors";
 
 const AuthNavigator = () => {
   const AuthStack = createStackNavigator();
@@ -20,42 +21,42 @@ const AuthNavigator = () => {
   return (
     <AuthStack.Navigator initialRouteName="Login">
       <AuthStack.Screen
-        options={{headerShown: false}}
+        options={{ headerShown: false }}
         name="Login"
         component={LoginComponent}
       />
       <AuthStack.Screen
-        options={{headerShown: false}}
+        options={{ headerShown: false }}
         name="Registration"
         // component={RegistrationComponents}
         component={ComingSoon}
       />
       <AuthStack.Screen
-        options={{headerShown: false}}
+        options={{ headerShown: false }}
         name="Verification"
         // component={VerificationComponets}
         component={ComingSoon}
       />
       <AuthStack.Screen
-        options={{headerShown: false}}
+        options={{ headerShown: false }}
         name="ForgotPassword"
         // component={ForgetPassword}
         component={ComingSoon}
       />
       <AuthStack.Screen
-        options={{headerShown: false}}
+        options={{ headerShown: false }}
         name="ResetPassword"
         // component={ResetPassword}
         component={ComingSoon}
       />
       <AuthStack.Screen
-        options={{headerShown: false}}
+        options={{ headerShown: false }}
         name="changePasswordOTP"
         // component={OtpVerification}
         component={ComingSoon}
       />
       <AuthStack.Screen
-        options={{headerShown: false}}
+        options={{ headerShown: false }}
         name="ForgotUserName"
         // component={ForgotUserId}
         component={ComingSoon}
@@ -67,16 +68,21 @@ const AuthNavigator = () => {
         options={{
           headerLeft: () => (
             <TouchableOpacity
-              onPress={() => navigation.navigate('Registration')}>
-              <Entypo name="chevron-small-left" size={30} color="#687C93" />
+              onPress={() => navigation.navigate("Registration")}
+            >
+              <Entypo
+                name="chevron-small-left"
+                size={30}
+                color={colors.Slate_Grey}
+              />
             </TouchableOpacity>
           ),
-          headerStyle: {borderBottomWidth: 1, borderColor: '#00000029'},
+          headerStyle: { borderBottomWidth: 1, borderColor: colors.lightBrown },
           headerBackTitleVisible: false,
           headerTitleStyle: {
             fontSize: scale(16),
-            color: '#4D4F5C',
-            fontFamily: 'SourceSansPro-SemiBold',
+            color: colors.GunPowder,
+            fontFamily: "SourceSansPro-SemiBold",
           },
         }}
       />
