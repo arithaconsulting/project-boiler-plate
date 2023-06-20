@@ -1,11 +1,10 @@
-import { HOME, FAIL, SUCCESS, GET_OTH_SUPT_APP_DATA } from "../action-types";
-import { baseURLwithPORT } from "../../config";
-export const getOtherSupportingAppData = (authToken) => (dispatch) =>
+import { FAIL, SUCCESS, GET_DEMO } from "../action-types";
+export const getDemoApi = (authToken) => (dispatch) =>
   dispatch({
-    type: GET_OTH_SUPT_APP_DATA,
+    type: GET_DEMO,
     payload: {
       request: {
-        url: `${baseURLwithPORT}/api/v1/get/mobileAppDetails`,
+        url: `api/v1/get/arithaconsulting`, //add endpoint
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -15,22 +14,14 @@ export const getOtherSupportingAppData = (authToken) => (dispatch) =>
       options: {
         onSuccess({ response }) {
           const { data, error } = response;
-          if (data.status !== 200) {
-            // Toast.show(data.message ? data.message : 'Something went wrong');
-          }
-          if (data.status === 200) {
-            dispatch({
-              type: `${GET_OTH_SUPT_APP_DATA}_${SUCCESS}`,
-              payload: { ...data },
-            });
-            dispatch({
-              type: HOME,
-              payload: { ...data },
-            });
-            return Promise.resolve({ ...data });
-          }
+          // If Api response success
           dispatch({
-            type: `${GET_OTH_SUPT_APP_DATA}_${FAIL}`,
+            type: `${GET_DEMO}_${SUCCESS}`,
+            payload: { ...data },
+          });
+          // if Api response fail
+          dispatch({
+            type: `${GET_DEMO}_${FAIL}`,
             payload: { ...error },
           });
           return Promise.reject(error);
@@ -41,13 +32,13 @@ export const getOtherSupportingAppData = (authToken) => (dispatch) =>
               response: { data: dataError },
             } = exception.error;
             dispatch({
-              type: `${GET_OTH_SUPT_APP_DATA}_${FAIL}`,
+              type: `${GET_DEMO}_${FAIL}`,
               payload: { dataError },
             });
             return Promise.reject(dataError);
           }
           dispatch({
-            type: `${GET_OTH_SUPT_APP_DATA}_${FAIL}`,
+            type: `${GET_DEMO}_${FAIL}`,
             payload: {},
           });
           return Promise.reject();
