@@ -5,6 +5,7 @@ export default {
   BlackRock: "#333246",
   bgColor: "#fafafa",
   borderColor: "#C3D0DE",
+  BlueViolet: "#C495F0",
 
   Cowboy: "#413434",
   customBlack: "#24262F",
@@ -51,6 +52,7 @@ export default {
   Matterhorn: "#505050",
 
   Navy: "#00000066",
+  NeonAquaBlue: "#23C1FF",
 
   orange: "#ff4500",
 

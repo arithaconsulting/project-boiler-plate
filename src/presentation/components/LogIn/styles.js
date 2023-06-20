@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
   linkText: {
     textDecorationLine: "underline",
     fontSize: scale(14),
-    color: colors.linkColor,
+    color: colors.NeonAquaBlue,
     fontFamily: "SourceSansPro-Regular",
   },
   errorMessage: {
@@ -55,7 +55,7 @@ const styles = StyleSheet.create({
     marginBottom: scale(10),
   },
   registerButton: {
-    borderColor: colors.linkColor,
+    borderColor: colors.NeonAquaBlue,
     borderWidth: 1,
     borderRadius: 4,
     width: scale(120),

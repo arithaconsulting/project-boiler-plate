@@ -3,7 +3,7 @@ import { scale } from "../../../Infrastructure/utils/screenUtility";
 import colors from "../../assets/colors/colors";
 const styles = StyleSheet.create({
   Button: {
-    backgroundColor: colors.SummerSky,
+    backgroundColor: colors.NeonAquaBlue,
     height: scale(40),
     borderRadius: 40,
     alignItems: "center",
