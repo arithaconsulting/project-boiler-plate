@@ -1,9 +1,10 @@
 import { StyleSheet } from "react-native";
+import colors from "../../../Infrastructure/assets/colors/colors";
 import { scale } from "../../../Infrastructure/utils/screenUtility";
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: colors.White,
   },
   logo: {
     marginHorizontal: scale(20),
@@ -20,7 +21,7 @@ const styles = StyleSheet.create({
   linkText: {
     textDecorationLine: "underline",
     fontSize: scale(14),
-    color: "#00A0DA",
+    color: colors.NeonAquaBlue,
     fontFamily: "SourceSansPro-Regular",
   },
   errorMessage: {
@@ -32,29 +33,29 @@ const styles = StyleSheet.create({
   TextInput: {
     marginTop: scale(5),
     borderRadius: 4,
-    borderColor: "#C3D0DE",
+    borderColor: colors.borderColor,
     borderWidth: 1,
     height: scale(40),
     fontSize: scale(14),
     fontFamily: "SourceSansPro-Regular",
     paddingHorizontal: scale(10),
-    color: "#4D4F5C",
+    color: colors.GunPowder,
   },
   labelText: {
     marginTop: scale(10),
     fontSize: scale(16),
     fontFamily: "SourceSansPro-Regular",
-    color: "#24262F",
+    color: colors.customBlack,
   },
   header: {
-    color: "#818181",
+    color: colors.Grey_Grey,
     fontSize: scale(16),
     fontFamily: "SourceSansPro-Regular",
     marginLeft: scale(20),
     marginBottom: scale(10),
   },
   registerButton: {
-    borderColor: "#00A0DA",
+    borderColor: colors.NeonAquaBlue,
     borderWidth: 1,
     borderRadius: 4,
     width: scale(120),

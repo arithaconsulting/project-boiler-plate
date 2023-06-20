@@ -3,13 +3,12 @@ import { scale } from "../../../Infrastructure/utils/screenUtility";
 import colors from "../../assets/colors/colors";
 const styles = StyleSheet.create({
   Button: {
-    backgroundColor: colors.SummerSky,
+    backgroundColor: colors.NeonAquaBlue,
     height: scale(40),
-    borderRadius: 4,
+    borderRadius: 40,
     alignItems: "center",
     flexDirection: "row",
     justifyContent: "center",
-    marginTop: scale(20),
   },
   Buttontext: {
     color: colors.White,

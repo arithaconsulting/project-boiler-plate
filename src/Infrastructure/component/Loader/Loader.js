@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import { StyleSheet, View, Modal, ActivityIndicator, Text } from "react-native";
 import colors from "../../assets/colors/colors";
 import { scale } from "../../utils/screenUtility";
@@ -8,9 +8,7 @@ const Loader = (props) => {
       transparent={true}
       animationType={"none"}
       visible={props.status}
-      onRequestClose={() => {
-        console.log("close modal");
-      }}
+      onRequestClose={() => {}}
     >
       <View style={styles.modalBackground}>
         <View style={styles.activityIndicatorWrapper}>

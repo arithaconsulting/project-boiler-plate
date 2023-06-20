@@ -1,20 +1,10 @@
-import {combineReducers} from 'redux';
-import {SUCCESS, LOGOUT} from '../action-types';
-import authReducer from './authReducer';
-import notificationReducer from './notificationReducer';
-import timeLine from './timeLine';
-import myAccountReducer from './myAccountReducer';
-import beneficiaryFamilyReducer from './beneficiaryFamilyReducer';
-import sponsorDetailsReducer from './sponsorDetailsReducer';
-import petitionDecisionsReducer from './petitionDecisionsReducer';
+import { combineReducers } from "redux";
+import { SUCCESS, LOGOUT } from "../action-types";
+import authReducer from "./authReducer";
+import timeLine from "./timeLine";
 const rootReducer = combineReducers({
   authReducer,
-  notificationReducer,
   timeLine,
-  myAccountReducer,
-  beneficiaryFamilyReducer,
-  sponsorDetailsReducer,
-  petitionDecisionsReducer,
 });
 
 const appReducer = (state, action) => {

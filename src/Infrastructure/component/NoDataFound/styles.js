@@ -6,7 +6,6 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    margin: scale(10),
   },
   Text: {
     color: colors.Matterhorn,

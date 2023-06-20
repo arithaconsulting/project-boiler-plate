@@ -15,10 +15,10 @@ import { scale } from "../../../Infrastructure/utils/screenUtility";
 import Loader from "../../../Infrastructure/component/Loader/Loader";
 import { useFormik } from "formik";
 import Logo from "../../../Infrastructure/component/Logo/Logo";
-import Feather from "react-native-vector-icons/Feather";
+import FontAwesome5 from "react-native-vector-icons/FontAwesome5";
 import colors from "../../../Infrastructure/assets/colors/colors";
-import CustomButton from "../../../Infrastructure/component/CustomButton/Button";
-import { setLogin } from "../../../Infrastructure/utils/storageUtility";
+import CustomButton from "../../../Infrastructure/component/CustomButton/CustomButton";
+import { AuthContext } from "../../../Infrastructure/utils/context";
 const loginValidationSchema = yup.object().shape({
   userID: yup.string().required("User Name / ID Required"),
   password: yup.string().required("Password Required"),
@@ -27,9 +27,9 @@ const LoginComponent = () => {
   const navigation = useNavigation();
   const [status, setStatus] = useState(false);
   const [passwordVisible, setPasswordVisible] = useState(true);
+  const { signIn } = React.useContext(AuthContext);
   const formSubmitHandler = async (formData) => {
-    // await setLogin(formData.userID);
-    navigation.navigate("Registration");
+    await signIn();
   };
   const {
     handleChange,
@@ -79,7 +79,11 @@ const LoginComponent = () => {
                       <Text style={styles.errorMessage}>{errors.userID}</Text>
                     )}
                   </View>
-                  <View style={{ marginTop: scale(10) }}>
+                  <View
+                    style={{
+                      marginTop: scale(10),
+                    }}
+                  >
                     <Text style={styles.labelText}>Password</Text>
                     <View
                       style={{
@@ -98,19 +102,25 @@ const LoginComponent = () => {
                         autoCorrect={false}
                         style={{ ...styles.TextInput, flex: 1 }}
                       />
-                      <Feather
-                        name={passwordVisible ? "eye" : "eye-off"}
+                      <FontAwesome5
+                        name={passwordVisible ? "eye" : "eye-slash"}
                         onPress={() => setPasswordVisible(!passwordVisible)}
-                        size={scale(15)}
+                        size={scale(20)}
                         color="grey"
-                        style={{ position: "absolute", right: 10 }}
+                        style={{
+                          position: "absolute",
+                          right: scale(10),
+                          top: scale(16),
+                        }}
                       />
                     </View>
                     {touched.password && errors.password && (
                       <Text style={styles.errorMessage}>{errors.password}</Text>
                     )}
                   </View>
-                  <CustomButton title="Login" onPress={handleSubmit} />
+                  <View style={{ marginTop: scale(20) }}>
+                    <CustomButton title="Login" onPress={handleSubmit} />
+                  </View>
                   <TouchableOpacity
                     style={styles.forgotContent}
                     onPress={() => {
@@ -134,22 +144,18 @@ const LoginComponent = () => {
             </View>
             <View>
               <Text style={styles.header}>Don’t have an account ?</Text>
-              <TouchableOpacity
-                style={styles.registerButton}
+              <CustomButton
+                title="Register"
+                buttonStyle={styles.registerButton}
+                buttonTextStyle={{
+                  color: colors.NeonAquaBlue,
+                  fontSize: scale(14),
+                  fontFamily: "SourceSansPro-SemiBold",
+                }}
                 onPress={() => {
                   navigation.navigate("Registration");
                 }}
-              >
-                <Text
-                  style={{
-                    color: "#00A0DA",
-                    fontSize: scale(14),
-                    fontFamily: "SourceSansPro-SemiBold",
-                  }}
-                >
-                  Register
-                </Text>
-              </TouchableOpacity>
+              />
             </View>
           </View>
         </ScrollView>
