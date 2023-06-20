@@ -19,6 +19,7 @@ import FontAwesome5 from "react-native-vector-icons/FontAwesome5";
 import colors from "../../../Infrastructure/assets/colors/colors";
 import CustomButton from "../../../Infrastructure/component/CustomButton/CustomButton";
 import { AuthContext } from "../../../Infrastructure/utils/context";
+import Toast from "react-native-simple-toast";
 const loginValidationSchema = yup.object().shape({
   userID: yup.string().required("User Name / ID Required"),
   password: yup.string().required("Password Required"),
@@ -29,7 +30,10 @@ const LoginComponent = () => {
   const [passwordVisible, setPasswordVisible] = useState(true);
   const { signIn } = React.useContext(AuthContext);
   const formSubmitHandler = async (formData) => {
-    await signIn();
+    Toast.show("Login Success", Toast.SHORT);
+    setTimeout(async () => {
+      await signIn();
+    }, 100);
   };
   const {
     handleChange,
@@ -73,7 +77,7 @@ const LoginComponent = () => {
                       value={values.userID}
                       onBlur={handleBlur("userID")}
                       onChangeText={handleChange("userID")}
-                      style={styles.TextInput}
+                      style={styles.TextInputs}
                     />
                     {touched.userID && errors.userID && (
                       <Text style={styles.errorMessage}>{errors.userID}</Text>
@@ -100,7 +104,7 @@ const LoginComponent = () => {
                         onChangeText={handleChange("password")}
                         secureTextEntry={passwordVisible}
                         autoCorrect={false}
-                        style={{ ...styles.TextInput, flex: 1 }}
+                        style={{ ...styles.TextInputs, flex: 1 }}
                       />
                       <FontAwesome5
                         name={passwordVisible ? "eye" : "eye-slash"}

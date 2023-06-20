@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
     color: "red",
     marginLeft: scale(5),
   },
-  TextInput: {
+  TextInputs: {
     marginTop: scale(5),
     borderRadius: 4,
     borderColor: colors.borderColor,

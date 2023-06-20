@@ -7,7 +7,6 @@ import {
 } from "@react-navigation/drawer";
 import Profile from "../../presentation/components/Profile/Profile";
 import { scale } from "../utils/screenUtility";
-import { useNavigation } from "@react-navigation/native";
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 import Back from "../component/back/Back";
 import ComingSoon from "../component/ComingSoon/ComingSoon";
@@ -93,7 +92,6 @@ const DrawerNavigator = (props) => {
             marginLeft: scale(-10),
             flexDirection: "row",
             paddingVertical: scale(10),
-            marginTop: scale(20),
           }}
         >
           <MaterialIcons

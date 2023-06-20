@@ -1,11 +1,10 @@
 import { View, Text, SafeAreaView, ScrollView } from "react-native";
 import React from "react";
-import colors from "../../../Infrastructure/assets/colors/colors";
-import { scale } from "../../../Infrastructure/utils/screenUtility";
-
+import WELCOMESVG from "../../../Infrastructure/assets/images/welcome.svg";
+import styles from "./styles";
 const TimeLine = () => {
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: colors.White }}>
+    <SafeAreaView style={styles.container}>
       <ScrollView
         contentContainerStyle={{
           flexGrow: 1,
@@ -14,24 +13,9 @@ const TimeLine = () => {
         <View
           style={{ flex: 1, justifyContent: "center", alignItems: "center" }}
         >
-          <Text
-            style={{
-              fontSize: scale(16),
-              fontFamily: "SourceSansPro-Regular",
-              color: colors.customBlack,
-            }}
-          >
-            Welcome !!!
-          </Text>
-          <Text
-            style={{
-              fontSize: scale(16),
-              fontFamily: "SourceSansPro-Regular",
-              color: colors.customBlack,
-            }}
-          >
-            To React Native Boiler Plate.
-          </Text>
+          <WELCOMESVG width="250px" height="250px" />
+          <Text style={styles.TextStyle}>Welcome !!!</Text>
+          <Text style={styles.TextStyle}>To React Native Boiler Plate.</Text>
         </View>
       </ScrollView>
     </SafeAreaView>
